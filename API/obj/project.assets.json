@@ -193,19 +193,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Radu\\.nuget\\packages\\": {}
+    "C:\\Users\\radu.darii\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programare\\CSharp\\AngularASP\\skinet\\API\\API.csproj",
+      "projectUniqueName": "C:\\Projects\\Practice\\SelfThesis\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Programare\\CSharp\\AngularASP\\skinet\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Radu\\.nuget\\packages\\",
-      "outputPath": "D:\\Programare\\CSharp\\AngularASP\\skinet\\API\\obj\\",
+      "projectPath": "C:\\Projects\\Practice\\SelfThesis\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\radu.darii\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\Practice\\SelfThesis\\API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Radu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\radu.darii\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -213,7 +218,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/Realeyes/index.json": {}
       },
       "frameworks": {
         "net5.0": {
@@ -246,6 +252,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.16, 5.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -254,8 +266,70 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    }
+  ]
 }

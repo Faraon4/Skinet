@@ -1,15 +1,77 @@
 {
   "version": 2,
-  "dgSpecHash": "R51H9fWp39M1XugN3A5xCB7S03KhxzKl3tIikqMrz4XO0yLrtwLgju85ln6bqpoKKiihkpIQdkQFC4tquK/Qiw==",
+  "dgSpecHash": "wW1wvxQslc1xZ7tQ3c+f1PWJPr4PTKXYNz7F6X+RfDeJRVhzh61/d/6LFWLMoMIG65Rr5z4G+JuQrCUau05e4w==",
   "success": true,
-  "projectFilePath": "D:\\Programare\\CSharp\\AngularASP\\skinet\\API\\API.csproj",
+  "projectFilePath": "C:\\Projects\\Practice\\SelfThesis\\API\\API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Radu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\Radu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\Radu\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "C:\\Users\\Radu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "C:\\Users\\Radu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "C:\\Users\\Radu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+    "C:\\Users\\radu.darii\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "C:\\Users\\radu.darii\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    },
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured."
+    }
+  ]
 }
