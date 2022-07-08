@@ -1,3 +1,4 @@
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,16 @@ namespace API
             services.AddControllers();
             
             // Addind the connection of the COnnectionStrings that we specify in the appSettings.Development.json
+            // It is going to be alive for the timeline of the request because of the AddDbContext<>
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+
+
+            // We are adding to the service , so we will use interfaces name for injecting, not class name
+            // We will use AddScoped because it will be created and keep as it is needed
+            // We could use AddTransient -> but it is too short, it creates a method and then destry after usage
+            // We could use AddSingleton -> but it is too long, it created from beginiing and destroy when everything is finished, which is too long
+
+            services.AddScoped<IProductRepository, ProductRepository>();
            
         }
 
