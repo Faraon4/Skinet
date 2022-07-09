@@ -20,7 +20,5 @@ namespace Core.Interfaces
         Task<ProductType> GetProductTypeByIdAsync(int id);
         Task<IReadOnlyList<ProductType>> GetProductTypesAsync();
 
-
-            // TestComment
     }
 }
