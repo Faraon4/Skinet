@@ -35,6 +35,9 @@ namespace API
             // We could use AddSingleton -> but it is too long, it created from beginiing and destroy when everything is finished, which is too long
 
             services.AddScoped<IProductRepository, ProductRepository>();
+
+
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
            
         }
 
