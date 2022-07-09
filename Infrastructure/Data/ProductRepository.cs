@@ -16,12 +16,6 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-            // Get the BRANDS
-        public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
-        {
-           return await _context.ProductBrands.ToListAsync();
-        }
-
             // Get the Products
          public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
@@ -37,6 +31,13 @@ namespace Infrastructure.Data
                                  .ToListAsync();
             
         }
+
+        // Get the BRANDS
+        public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
+        {
+           return await _context.ProductBrands.ToListAsync();
+        }
+
             // Get the TYPES
         public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
         {
