@@ -1,3 +1,4 @@
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
@@ -38,8 +39,15 @@ namespace API
 
 
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+
+            // Add the Automapper
+            // We need to specify the file (assembly file) where are mapping is happening
+            services.AddAutoMapper(typeof(MappingProfiles));
            
         }
+
+
+        // Order is very important in the Configure method
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,6 +62,7 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles(); // Call the static pictures that we add to the project
 
             app.UseAuthorization();
 
