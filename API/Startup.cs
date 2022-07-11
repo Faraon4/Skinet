@@ -1,17 +1,12 @@
-using System.Linq;
-using API.Errors;
+using API.Extensions;
 using API.Helpers;
 using API.Middleware;
-using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace API
 {
@@ -34,45 +29,16 @@ namespace API
             // It is going to be alive for the timeline of the request because of the AddDbContext<>
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
 
-
-            // We are adding to the service , so we will use interfaces name for injecting, not class name
-            // We will use AddScoped because it will be created and keep as it is needed
-            // We could use AddTransient -> but it is too short, it creates a method and then destry after usage
-            // We could use AddSingleton -> but it is too long, it created from beginiing and destroy when everything is finished, which is too long
-
-            services.AddScoped<IProductRepository, ProductRepository>();
-
-
-            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
-
             // Add the Automapper
             // We need to specify the file (assembly file) where are mapping is happening
             services.AddAutoMapper(typeof(MappingProfiles));
 
-            // Usually it does not matter the order here
-            // but in this case matters :D
-            // because we are ovrwriting the ApiController behaviour
-            services.Configure<ApiBehaviorOptions>(options => 
-            {
-                options.InvalidModelStateResponseFactory = actionContext => 
-                {
-                    var errors = actionContext.ModelState
-                                .Where(e => e.Value.Errors.Count > 0)
-                                .SelectMany(x => x.Value.Errors)
-                                .Select(x => x.ErrorMessage).ToArray();
-
-                    var errorResponse = new ApiValidationErrorResponse
-                    {
-                        Errors = errors
-                    };
-                    return new BadRequestObjectResult(errorResponse);
-                };
-            });
+            // We did some hose keeping
+            // We add some services to this class
+            // and then we just add this clus here, in services
+            services.AddApplicationServices();
            
-           services.AddSwaggerGen(c => 
-           {
-            c.SwaggerDoc("v1",new OpenApiInfo {Title = "API", Version = "v1"});
-           });
+           services.AddSwaggerDocumentation(); // Method that we created
         }
 
 
@@ -81,10 +47,7 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-                 app.UseMiddleware<ExceptionMiddleware>();
-                 app.UseSwagger();
-                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // We put it upp in Configure, because it is ery important point in the application
             // How does it work, =>  when we get an error , it is redirected to this end point
@@ -97,6 +60,7 @@ namespace API
             app.UseStaticFiles(); // Call the static pictures that we add to the project
 
             app.UseAuthorization();
+            app.UseSwaggerDocumentation(); // Method that we jst created 
 
             app.UseEndpoints(endpoints =>
             {
