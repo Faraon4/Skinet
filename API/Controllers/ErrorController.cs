@@ -9,6 +9,7 @@ namespace API.Controllers
 {
     // We create this controller, that can generate our response (in our case ApiResponse())
     [Route("errors/{code}")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorController : BaseApiController
     {
         public IActionResult Error(int code)

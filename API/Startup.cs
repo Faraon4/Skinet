@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace API
 {
@@ -68,6 +69,10 @@ namespace API
                 };
             });
            
+           services.AddSwaggerGen(c => 
+           {
+            c.SwaggerDoc("v1",new OpenApiInfo {Title = "API", Version = "v1"});
+           });
         }
 
 
@@ -76,13 +81,10 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseMiddleware<ExceptionMiddleware>();
-            if (env.IsDevelopment())
-            {
-                 // app.UseDeveloperExceptionPage(); => we do not use this more , because we created our middle ware, which is upper
-                // app.UseSwagger();
-                // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-            }
+                 app.UseMiddleware<ExceptionMiddleware>();
+                 app.UseSwagger();
+                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+
 
             // We put it upp in Configure, because it is ery important point in the application
             // How does it work, =>  when we get an error , it is redirected to this end point
