@@ -11,7 +11,13 @@ namespace Core.Specification
     {
 
         // Using this contrustor for getting the brand and the type in our request, not to see null
-        public ProductsWithTypesAndBrandsSpecification(string sort)
+       
+       // add the base, because we need to use as where keyword, but where it is used in the BaseSpecification class
+        public ProductsWithTypesAndBrandsSpecification(string sort, int?brnadId, int? typeId) 
+        : base(x => 
+        (!brnadId.HasValue || x.ProductBrandId == brnadId) && 
+        (!typeId.HasValue || x.ProductTypeId ==typeId)
+        )
         {
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
