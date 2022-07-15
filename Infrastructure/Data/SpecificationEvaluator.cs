@@ -24,6 +24,20 @@ namespace Infrastructure.Data
             // current => the current entity TEntity
             // include => our expresion
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));
+           
+           
+           
+           // Sorting
+            if (spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+
+            if (spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
+           
             return query;
         }
     }
