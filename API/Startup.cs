@@ -39,6 +39,15 @@ namespace API
             services.AddApplicationServices();
            
            services.AddSwaggerDocumentation(); // Method that we created
+
+
+           services.AddCors(opt => 
+           {
+                opt.AddPolicy("CorsPolicy", policy => 
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+           });
         }
 
 
@@ -58,6 +67,8 @@ namespace API
 
             app.UseRouting();
             app.UseStaticFiles(); // Call the static pictures that we add to the project
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
             app.UseSwaggerDocumentation(); // Method that we jst created 
