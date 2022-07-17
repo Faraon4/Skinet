@@ -15,6 +15,7 @@ namespace Core.Specification
        // add the base, because we need to use as where keyword, but where it is used in the BaseSpecification class
         public ProductsWithTypesAndBrandsSpecification( ProductSpecParams productParams) 
         : base(x => 
+        (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
         (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) && 
         (!productParams.TypeId.HasValue || x.ProductTypeId ==productParams.TypeId)
         )
