@@ -12,6 +12,8 @@ namespace Infrastructure.Data
     {
         public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> spec)
         {
+            // Ordering is very important
+            // so we are doing filtering before pagination than vice-versa
             var query = inputQuery;
 
             // evaluate what is inside the specification
@@ -38,6 +40,15 @@ namespace Infrastructure.Data
                 query = query.OrderByDescending(spec.OrderByDescending);
             }
            
+
+
+            // Pagination
+            if (spec.IsPagingEnabled)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
+
+
             return query;
         }
     }
