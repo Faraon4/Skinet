@@ -13,10 +13,10 @@ namespace Core.Specification
         // Using this contrustor for getting the brand and the type in our request, not to see null
        
        // add the base, because we need to use as where keyword, but where it is used in the BaseSpecification class
-        public ProductsWithTypesAndBrandsSpecification(string sort, int?brnadId, int? typeId) 
+        public ProductsWithTypesAndBrandsSpecification( ProductSpecParams productParams) 
         : base(x => 
-        (!brnadId.HasValue || x.ProductBrandId == brnadId) && 
-        (!typeId.HasValue || x.ProductTypeId ==typeId)
+        (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) && 
+        (!productParams.TypeId.HasValue || x.ProductTypeId ==productParams.TypeId)
         )
         {
             AddInclude(x => x.ProductType);
@@ -25,11 +25,14 @@ namespace Core.Specification
             // Order function
             AddOrderBy(x =>x.Name);
 
+            //Pagination
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
+
             // condition to check value of the sort, and then apply correct order
 
-            if(!string.IsNullOrEmpty(sort))
+            if(!string.IsNullOrEmpty(productParams.Sort))
             {
-                switch(sort)
+                switch(productParams.Sort)
                 {
                     case "priceAsc":
                             AddOrderBy(p => p.Price);
