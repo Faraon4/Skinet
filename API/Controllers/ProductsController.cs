@@ -35,11 +35,12 @@ namespace API.Controllers
         // Get the Product(s)
 
         // We change to IReadOnlyList because we use like this in the repository
+        // We are using FromQuery to be able to ge the result back
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort, int? brandId, int? typeId)
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts([FromQuery] ProductSpecParams productParams)
         {
             
-            var spec = new ProductsWithTypesAndBrandsSpecification(sort, brandId, typeId);
+            var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
 
             var products = await _productsRepo.ListAsync(spec);
 
