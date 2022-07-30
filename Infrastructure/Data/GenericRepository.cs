@@ -50,7 +50,7 @@ namespace Infrastructure.Data
         }
 
 
-
+        // We apply this method to do the the evaluator
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
