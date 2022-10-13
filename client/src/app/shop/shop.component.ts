@@ -13,6 +13,8 @@ export class ShopComponent implements OnInit {
  products: IProduct[];
  brands: IBrand[];
  types: IType[];
+ brandIdSelected: number = 0; // We add = 0 to select from the beginning to be ALL brand selected
+ typeIdSelected: number = 0; // We add = 0 to select from the beginning to be ALL type selected
 
 
   constructor(private shopService: ShopService) { }
@@ -26,7 +28,7 @@ export class ShopComponent implements OnInit {
 
 
   getProducts(){
-    this.shopService.getProducts().subscribe(response => {
+    this.shopService.getProducts(this.brandIdSelected, this.typeIdSelected).subscribe(response => {
       this.products = response.data;
     }, error => {
       console.log(error)
@@ -36,7 +38,9 @@ export class ShopComponent implements OnInit {
 
   getBrands(){
     this.shopService.getBrands().subscribe(response => {
-      this.brands = response; // if we just want to populate the array with other array, we have to specify it in the service as well
+      this.brands = [{id: 0, name : 'All'},...response] // if we just want to populate the array with other array, we have to specify it in the service as well
+                                                        // response is an array, we did like this, to spread up the objects from inside the response and add infront of them the {object}
+                                                        // simply add, ALL in site to choose it
     }, error => {
       console.log(error)
     });
@@ -44,10 +48,24 @@ export class ShopComponent implements OnInit {
 
   getTypes(){
     this.shopService.getTypes().subscribe(response => {
-      this.types = response; // if we just want to populate the array with other array, we have to specify it in the service as well
+      this.types = [{id: 0, name : 'All'},...response]; // if we just want to populate the array with other array, we have to specify it in the service as well
     }, error => {
       console.log(error)
     })
+  }
+
+
+
+  onBrandSelected(brandId: number){
+    this.brandIdSelected = brandId;
+    this.getProducts();
+
+  }
+
+
+  onTypeSelected(typeId: number){
+    this.typeIdSelected = typeId;
+    this.getProducts();
   }
 
 
