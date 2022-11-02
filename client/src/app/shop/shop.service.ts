@@ -17,17 +17,21 @@ export class ShopService {
   getProducts(shopParams: ShopParams){
     let params = new HttpParams();
 
-    if(shopParams.brandId) {
+    if(shopParams.brandId !== 0) {
       params = params.append('brandId', shopParams.brandId.toString());
     }
 
-    if(shopParams.typeId) {
+    if(shopParams.typeId !== 0) {
       params = params.append('typeId',shopParams.typeId.toString());
     }
 
     if (shopParams.sort) {
       params = params.append('sort', shopParams.sort);
     }
+
+
+    params = params.append('pageIndex', shopParams.pageNumber.toString())
+    params = params.append('pageIndex', shopParams.pageSize.toString())
 
     return this.http.get<IPagination>(this.baseUrl + 'products', {observe: 'response', params})   // We get an observable , and we can manioulate it and get into pagination form
       .pipe( // wrapper around rxjs opperator, inside this pipe operator, we can chain other funct as well (for example delay)

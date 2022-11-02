@@ -87,6 +87,12 @@ onSortSelected(sort: string){
 }
 
 
+onPageChanged(event: any){
+  this.shopParams.pageNumber = event.page;
+  this.getProducts()
+}
+
+
 }
 
 
