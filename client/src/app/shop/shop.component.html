@@ -48,10 +48,11 @@
                 ></app-paging-header>
 
                 <div class="form-inline mt-2">
-                    <input class="form-control mr-2 ml-5 custom-class-input" style="width: 300px" placeholder="Search" type="text">
+                  <!--keyup.enter is used to make enter tab to work when user is pressing t-->
+                    <input (keyup.enter)="onSearch()" class="form-control mr-2 ml-5 custom-class-input" #search style="width: 300px" placeholder="Search" type="text">
                 </div>
-                <button class="btn btn-outline-primary my-2 custom-class-button-search">Search</button>
-                <button class="btn btn-outline-success my-2">Reset</button>
+                <button (click)="onSearch()" class="btn btn-outline-primary my-2 custom-class-button-search">Search</button>
+                <button (click)="onReset()" class="btn btn-outline-success my-2">Reset</button>
             </div>
 
             <div class="row">
