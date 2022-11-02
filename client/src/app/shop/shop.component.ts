@@ -16,6 +16,15 @@ export class ShopComponent implements OnInit {
  brandIdSelected: number = 0; // We add = 0 to select from the beginning to be ALL brand selected
  typeIdSelected: number = 0; // We add = 0 to select from the beginning to be ALL type selected
 
+ sortSelected = 'name'
+
+ // Speling is very important, because only such way we get information from our backend
+ sortOptions = [
+  {name: 'Alphabetical', value: 'name'},
+  {name: 'Price: Low to High', value: 'priceAsc'},
+  {name: 'Price: High to Low', value: 'priceDesc'}
+ ]
+
 
   constructor(private shopService: ShopService) { }
 
@@ -28,7 +37,7 @@ export class ShopComponent implements OnInit {
 
 
   getProducts(){
-    this.shopService.getProducts(this.brandIdSelected, this.typeIdSelected).subscribe(response => {
+    this.shopService.getProducts(this.brandIdSelected, this.typeIdSelected, this.sortSelected).subscribe(response => {
       this.products = response.data;
     }, error => {
       console.log(error)
@@ -67,6 +76,12 @@ export class ShopComponent implements OnInit {
     this.typeIdSelected = typeId;
     this.getProducts();
   }
+
+
+onSortSelected(sort: string){
+  this.sortSelected = sort;
+  this.getProducts();
+}
 
 
 }
