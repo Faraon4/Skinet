@@ -73,6 +73,7 @@ export class ShopComponent implements OnInit {
 
   onBrandSelected(brandId: number){
     this.shopParams.brandId = brandId;
+    this.shopParams.pageNumber = 1 // reseting it to 1, because we get bug that is described in video nr 105
     this.getProducts();
 
   }
@@ -80,6 +81,7 @@ export class ShopComponent implements OnInit {
 
   onTypeSelected(typeId: number){
     this.shopParams.typeId = typeId;
+    this.shopParams.pageNumber = 1 // reseting it to 1, because we get bug that is described in video nr 105
     this.getProducts();
   }
 
@@ -91,14 +93,20 @@ onSortSelected(sort: string){
 
 
 onPageChanged(event: any){
+  // We did this because we have bug that is described in video number 105
+  if(this.shopParams.pageNumber !== event)
+  {
+    
   this.shopParams.pageNumber = event;
   this.getProducts()
+  }
 }
 
 
 
 onSearch(){
   this.shopParams.search = this.searchTerm.nativeElement.value;
+  this.shopParams.pageNumber = 1 // reseting it to 1, because we get bug that is described in video nr 105
   this.getProducts();
 }
 
