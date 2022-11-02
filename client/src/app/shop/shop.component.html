@@ -41,20 +41,11 @@
         <section class="col-9">
             <div class="d-flex jutify-content-between align-items-center pb-2">
 
-                <header class="mr-5 custom-class-header">
-                    <span *ngIf="totalCount && totalCount > 0">Showing 
-                      <strong>
-                        {{(this.shopParams.pageNumber - 1) * this.shopParams.pageSize + 1}} - 
-                        {{this.shopParams.pageNumber*this.shopParams.pageSize
-                          > this.totalCount 
-                          ? this.totalCount
-                          :this.shopParams.pageNumber * this.shopParams.pageSize
-                        }}
-                      </strong> of <strong>{{this.totalCount}}</strong> Results</span>
-                      <span *ngIf="totalCount === 0"> <!--We are adding 3 lines of code , in case we do not match any filetring and we have 0 out of 0-->
-                        There are <strong>0</strong> results for this filtering
-                      </span>
-                </header>    
+                <app-paging-header
+                [totalCount]="totalCount"
+                [pageSize]="this.shopParams.pageSize"
+                [pageNumber]="this.shopParams.pageNumber"
+                ></app-paging-header>
 
                 <div class="form-inline mt-2">
                     <input class="form-control mr-2 ml-5 custom-class-input" #search style="width: 300px" placeholder="Search" type="text">
