@@ -48,7 +48,7 @@
                 ></app-paging-header>
 
                 <div class="form-inline mt-2">
-                    <input class="form-control mr-2 ml-5 custom-class-input" #search style="width: 300px" placeholder="Search" type="text">
+                    <input class="form-control mr-2 ml-5 custom-class-input" style="width: 300px" placeholder="Search" type="text">
                 </div>
                 <button class="btn btn-outline-primary my-2 custom-class-button-search">Search</button>
                 <button class="btn btn-outline-success my-2">Reset</button>
@@ -60,16 +60,13 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-                <pagination 
-                [boundaryLinks]="true" 
-                [totalItems]="this.totalCount"
-                (pageChanged)="onPageChanged($event)"
-                [itemsPerPage]="this.shopParams.pageSize"
-                previousText="&lsaquo;" 
-                nextText="&rsaquo;" 
-                firstText="&laquo;" 
-                lastText="&raquo;">
-                </pagination>
+                <app-pager
+                  [pageSize]="shopParams.pageSize"
+                  [totalCount]="totalCount"
+                  (pageChanged)="onPageChanged($event)"
+                >
+                      <!--IT IS VERY IMPORTANT  onPageChanged we are using here , in shop componeed, inside the page html , we are using other method, that use params from this method that we use it here-->
+                </app-pager>
               </div>
         </section>
     </div>
